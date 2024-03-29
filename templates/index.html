@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Prediction</title>
+    <style>
+        body {
+            color: rgb(40, 41, 97);
+            margin: 0;
+            /* Add this line to remove the gap */
+        }
+
+
+        header {
+            background-color: rgba(45, 41, 105, 1.0);
+            position: absolute;
+            width: 100%;
+            color: white;
+            text-align: center;
+
+        }
+
+        .Backimage {
+            width: 100%;
+            height: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Predict Traffic Situation using AI</h1>
+    </header>
+
+    <div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <img class="Backimage" src="{{ url_for('static', filename='bckimage3.jpg') }}" alt="Image">
+    </div>
+
+    <h2 align="center">Now managed traffic using AI. </h2>
+    <center>
+        <form action="/" method="post" enctype="multipart/form-data"
+            style="border: 1px solid rgb(20, 0, 58); padding: 5px; background-color: #fffdfd; box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3); width: 28%;">
+            <!-- Your form content here -->
+
+            <label for="image">Upload Image:</label>
+
+            <input type="file" id="image" name="image">
+            <br>
+            <br>
+            <input type="submit" value="Upload" style="background-color: rgb(59, 59, 101); color: white;">
+           
+            <br>
+
+        </form>
+            <br>
+            <br>
+                <form action="/predict" method="get" enctype="multipart/form-data">
+                    <center>
+                        <input type="submit" value="Predict Condition" style="background-color: rgb(59, 59, 101); color: white;">
+                    </center>
+                </form>
+        <br>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <br>
+    </center>
+
+    <br>
+    <br>
+
+</body>
+
+</html>
