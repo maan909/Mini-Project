@@ -51,7 +51,7 @@ def predict():
         TruckCount = count[3]
         TotalCount = CarCount+BikeCount+BusCount+TruckCount
         input = np.array([[time, date, day, CarCount, BikeCount, BusCount, TruckCount, TotalCount]])
-        picklemodel = pickle.load(open('TrafficDensityModel.pkl','rb'))
+        picklemodel = pickle.load(open('TrafficDensityModelSVM.pkl','rb'))
         result = picklemodel.predict(input)
         print(day)
         print(date)
